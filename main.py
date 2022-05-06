@@ -1,14 +1,14 @@
 # domain Identity and Access Management
 class User:
 
-    User_ID = 1
+    user_id = 1
 
-    def __init__(self, username, password, role_id="default"):
+    def __init__(self, username, password, role_id=None):
         self.username = username
         self.password = password
         self.role_id = role_id
-        self.id = User.User_ID
-        User.User_ID += 1
+        self.id = User.user_id
+        User.user_id += 1
 
     def change_password(self, new_password):
         self.password = new_password
@@ -18,12 +18,12 @@ class User:
 
     class Role:
 
-        Role_ID = 1
+        role_id = 1
 
         def __init__(self, role_name):
             self.role_name = role_name
-            self.id = User.Role.Role_ID
-            User.Role.Role_ID += 1
+            self.id = User.Role.role_id
+            User.Role.role_id += 1
 
 
 # domain Customer Relationship Management
@@ -31,60 +31,60 @@ class Customer:
 
     users = []
     projects = []
-    Customer_ID = 1
+    customer_id = 1
 
     def __init__(self, name):
         self.name = name
-        self.id = Customer.Customer_ID
-        Customer.Customer_ID += 1
+        self.id = Customer.customer_id
+        Customer.customer_id += 1
 
-    def add_user(self, User_ID):
-        self.users.append(User_ID)
+    def add_user(self, user_id):
+        self.users.append(user_id)
 
-    def add_project(self, Project_ID):
-        self.projects.append(Project_ID)
+    def add_project(self, project_id):
+        self.projects.append(project_id)
 
-    def delete():
-        pass
+    def delete(self):
+        del self
 
     class Address:
 
-        Address_ID = 1
+        address_id = 1
 
         def __init__(self, name1, zipcode, city, name2=""):
             self.name1 = name1
             self.name2 = name2
             self.zipcode = zipcode
             self.city = city
-            self.id = Customer.Address.Address_ID
-            Customer.Address.Address_ID += 1
+            self.id = Customer.Address.address_id
+            Customer.Address.address_id += 1
 
 
 # domain Product
-class Product:
+class Session:
 
-    Product_ID = 1
+    session_id = 1
 
-    def __init__(self, session_id, duration, mode, User_ID):
-        self.session_id = session_id
+    def __init__(self, session_id, duration, mode, user_id):
+        self.id = session_id
         self.duration = duration
         self.mode = mode
-        self.user_id = User_ID
-        self.id = Product.Product_ID
-        Product.Product_ID += 1
+        self.user_id = user_id
+        self.id = Session.session_id
+        Session.session_id += 1
 
-    def start():
+    def start(self):
         pass
 
-    def add_measurements():
+    def add_measurements(self):
         pass
 
-    def end():
+    def end(self):
         pass
 
     class Measure:
 
-        Measure_ID = 1
+        measure_id = 1
 
         def __init__(self, alpha, beta, gamma, delta, theta):
             self.alpha = alpha
@@ -92,69 +92,69 @@ class Product:
             self.gamma = gamma
             self.delta = delta
             self.theta = theta
-            self.id = Product.Measure.Measure_ID
-            Product.Measure.Measure_ID += 1
+            self.id = Session.Measure.measure_id
+            Session.Measure.measure_id += 1
 
-        def measure():
+        def measure(self):
             pass
 
 
 class Profile:
 
-    Profile_ID = 1
+    profile_id = 1
 
     def __init__(self, measurement):
         self.measurement = measurement
-        self.id = Profile.Profile_ID
-        Profile.Profile_ID += 1
+        self.id = Profile.profile_id
+        Profile.profile_id += 1
 
-    def get_calculation():
+    def get_calculation(self):
         pass
 
-    def get_measurement():
+    def get_measurement(self):
         pass
 
     class Calculation:
 
-        Calculation_ID = 1
+        calculation_id = 1
 
         def __init__(self):
-            self.id = Profile.Calculation.Calculation_ID
-            Profile.Calculation.Calculation_ID += 1
+            self.id = Profile.Calculation.calculation_id
+            Profile.Calculation.calculation_id += 1
 
-        def calculate():
+        def calculate(self):
             pass
 
 
 # domain Project
 class Project:
 
-    Project_ID = 1
+    project_id = 1
 
     def __init__(self, name, startdate, enddate):
         self.name = name
         self.startdate = startdate
         self.enddate = enddate
-        self.id = Project.Project_ID
-        Project.Project_ID += 1
+        self.id = Project.project_id
+        Project.project_id += 1
 
-    def delete_project():
+    def delete_project(self):
         pass
 
-    def end_project():
+    def end_project(self):
         pass
 
 
 # domain Invoice
 class Invoice:
 
-    Invoice_ID = 1
+    invoice_id = 1
 
-    def __init__(self, invoicenr, date, total, due_date, Project_ID):
+    def __init__(self, invoicenr, date, total, due_date, project_id):
         self.incoicenr = invoicenr
         self.date = date
         self.total = total
         self.due_date = due_date
-        self.project_id = Project_ID
-        self.id = Invoice.Invoice_ID
-        Invoice.Invoice_ID += 1
+        self.project_id = project_id
+        self.id = Invoice.invoice_id
+        Invoice.invoice_id += 1
