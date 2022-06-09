@@ -144,10 +144,6 @@ class Project:
     def end_project(self):
         pass
 
-    def edit_project(self, project_id):
-        pass
-
-
 
 # domain Invoice
 class Invoice:
@@ -155,7 +151,7 @@ class Invoice:
     invoice_id = 1
 
     def __init__(self, invoicenr, date, total, due_date, project_id):
-        self.invoicenr = invoicenr
+        self.incoicenr = invoicenr
         self.date = date
         self.total = total
         self.due_date = due_date
